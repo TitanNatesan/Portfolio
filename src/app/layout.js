@@ -5,6 +5,7 @@ import { particlesConfig } from "./utils/particles.config";
 import ParticlesGB from "./components/particles/ParticlesGB";
 import SideCard from "./components/sub-comp/SideCard";
 import Progress from "./components/sub-comp/progressbar";
+import Script from "next/script";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,13 +16,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="true" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Courgette&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Satisfy&display=swap" rel="stylesheet" />
-        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <Script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></Script>
       </head>
       <body className={`antialiased`}>
-        <Progress/>
+        <Progress />
         <ParticlesComponent options={particlesConfig} />
         <ParticlesGB />
         <SideCard />
