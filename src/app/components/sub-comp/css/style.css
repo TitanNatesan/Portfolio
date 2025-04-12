@@ -1,0 +1,55 @@
+.skilcard h4 {
+    display: flex;
+    justify-content: center;
+    text-wrap: nowrap;
+    align-items: center;
+    height: 0;
+    width: 0;
+    border: none;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out .3s;
+}
+
+.skilcard:hover h4 {
+    width: 200px;
+    height: 50px;
+    filter: drop-shadow(0 0 5px black);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.skilcard {
+    width: 15%;
+    margin: 40px 0;
+    padding: 25px;
+    filter: saturate(1);
+    backdrop-filter: blur(0px);
+    background: #fff1;
+    opacity: .8;
+    transition: all 0.3s ease-in-out .3s, border 0.3s ease-in-out 0s;
+}
+
+.skilcard:hover {
+    margin: 10px 0;
+    padding: 30px;
+    border: 2px solid var(--foreground);
+    box-shadow: 0 0 10px var(--primary),
+        0 0 20px var(--primary),
+        inset 0 0 10px var(--primary),
+        inset 0 0 20px var(--primary);
+    filter: saturate(1.5);
+    backdrop-filter: blur(5px);
+    /* box-shadow: none; */
+    background: transparent;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.skilcard img {
+    aspect-ratio: 1/1;
+    transition: all 0.3s ease-in-out 1.2s;
+}
+
+.skilcard:hover img {
+    transform: scale(.8);
+    transition: all 0.3s ease-in-out 0s;
+}

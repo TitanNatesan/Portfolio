@@ -1,15 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import NavBar from "./components/sub-comp/NavBar";
+import ParticlesComponent from "./components/particles/Particles";
+import { particlesConfig } from "./utils/particles.config";
+import ParticlesGB from "./components/particles/ParticlesGB";
+import SideCard from "./components/sub-comp/SideCard";
+import Progress from "./components/sub-comp/progressbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -19,10 +14,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Courgette&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Satisfy&display=swap" rel="stylesheet" />
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      </head>
+      <body className={`antialiased`}>
+        <Progress/>
+        <ParticlesComponent options={particlesConfig} />
+        <ParticlesGB />
+        <SideCard />
         {children}
+        <NavBar />
       </body>
     </html>
   );

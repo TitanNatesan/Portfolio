@@ -1,0 +1,189 @@
+aside {
+    margin: auto;
+    width: 100%;
+    /* position: absolute ; */
+    /* top: 50%; */
+    /* left: 2%; */
+    /* transform: translate(-0%, -50%); */
+    border-radius: 60px 0 60px 0;
+    border: 1px solid var(--primary);
+    box-shadow: none;
+    transition: all 0.5s;
+}
+
+aside:hover {
+    border: 1px solid var(--foreground);
+    box-shadow: 0 0 10px var(--primary),
+        0 0 20px var(--primary),
+        inset 0 0 10px var(--primary),
+        inset 0 0 20px var(--primary);
+}
+
+aside .imag {
+    aspect-ratio: 18/24;
+    object-fit: cover;
+}
+
+.icon {
+    position: relative;
+    background: #fff3;
+}
+
+.icon:hover{
+    transition-delay: .1s;
+    background: transparent;
+}
+
+.icon p {
+    position: absolute;
+    top: 0%;
+    padding: 1% 5%;
+    font-weight: 700;
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    color: var(--background);
+    opacity: 0;
+    scale: 0;
+    transition: all 0.5s;
+}
+
+.icon:hover p {
+    top: -45%;
+    opacity: 1;
+    scale: .8;
+}
+
+.icon p::after {
+    content: "";
+    position: absolute;
+    bottom: -82%;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    border-width: 0px;
+    transition: all 0.5s ease-in-out;
+    border-style: solid;
+    border-color: var(--primary) transparent transparent transparent;
+}
+
+.icon:hover p::after {
+    border-width: 10px;
+    opacity: 1;
+}
+
+.icon:hover .ico {
+    transition: all 0.5s ease-in-out;
+    scale: 2;
+    filter: drop-shadow(0 0 10px #fff) invert(1);
+}
+
+aside button {
+    width: 84%;
+    height: 8%;
+    background-color: var(--primary);
+    color: var(--background);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+
+aside button p::after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    bottom: 6px;
+    left: 0;
+    width: 0%;
+    height: 1%;
+    border: 0px solid var(--background);
+    border-radius: 200px;
+    background-color: var(--background);
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+aside button:hover p::after {
+    border: 1px solid var(--background);
+    width: 100%;
+}
+
+
+
+/* timeline-css */
+
+.timeline-item {
+    width: 45%;
+    transition: all 0.5s;
+    padding-bottom: 5%;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    width: 1px;
+    border-radius: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    opacity: .5;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    background-color: var(--primary);
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 40%;
+    transition: all 0.5s ease-in-out;
+}
+
+.rit .con , .lft .con{
+    opacity: .6;
+    filter: saturate(0) blur(1px);
+    transition: all .3s ease-in-out;
+}
+
+.rit:hover .con,
+.lft:hover .con{
+    opacity: 1;
+    filter: saturate(1);
+}
+
+.timeline-item:hover::after{
+    box-shadow: 0 0 10px var(--primary),
+        0 0 20px var(--primary),
+        inset 0 0 10px var(--primary),
+        inset 0 0 20px var(--primary);
+}
+
+.timeline-item:hover::before{
+    opacity: 1;
+}
+
+.rit {
+    float: right;
+    text-align: left;
+}
+
+.lft {
+    float: left;
+    text-align: right;
+}
+
+.rit .con {
+    padding-left: 10px;
+    border-left: 1px solid var(--primary);
+}
+
+.lft .con {
+    padding-right: 10px;
+    border-right: 1px solid var(--primary);
+}

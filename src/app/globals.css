@@ -1,26 +1,479 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* Base theme variables */
+  --background: #000000;
   --foreground: #171717;
+  --primary: #4ade80;
+  --secondary: #22c55e;
+  --accent: #facc15;
+
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  --font-fam: "Josefin Sans", sans-serif;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-8: 2rem;
+  --space-16: 4rem;
+
+  /* Borders */
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.25rem;
+  --border-radius-lg: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  font-family: var(--font-fam);
+  user-select: none;
 }
 
+/* Dark theme (default) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    /* Dark green-tinted black */
+    --foreground: #ecfdf5;
+    /* Light green-tinted white */
+    --primary: #4ade80;
+    /* Vibrant green */
+    --secondary: #22c55e;
+    /* Medium green */
+    --accent: #facc15;
+    /* Warm yellow accent */
   }
 }
 
+svg {
+  transition: all 0.5s ease;
+}
+
+span {
+  color: var(--foreground);
+}
+
+
+/* Light theme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #f0fdf4;
+    /* Very light green */
+    --foreground: #064e3b;
+    /* Dark green for text */
+    --primary: #059669;
+    /* Medium green */
+    --secondary: #10b981;
+    /* Light green */
+    --accent: #eab308;
+    /* Darker yellow accent */
+  }
+}
+
+.b {
+  border: 1px solid red;
+}
+
+h1 {
+  color: var(--foreground);
+}
+
+h4 {
+  color: var(--foreground);
+}
+
+b {
+  all: unset;
+  color: var(--primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  position: relative;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* min-height: 100vh; */
+  color: var(--primary);
+  font-size: var(--font-size-base);
+  display: grid;
+  grid-template-columns: 30% 60% 10%;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+/* body::-webkit-scrollbar {
+  display: none;
+} */
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  /* max-height: 100vh; */
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  /* overflow-x: hidden; */
+  /* scrollbar-width: none; */
+}
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: center;
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  /* overflow: hidden; */
+}
+
+#particles {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#particles-js {
+  filter: blur(80px) brightness(.4) saturate(1.2);
+  z-index: -100;
+}
+
+nav {
+  /* display: none; */
+  width: 40%;
+  min-width: 80px;
+  margin: auto;
+  border: 1px solid var(--primary);
+  color: var(--foreground);
+  box-shadow: none;
+  transition: all 0.8s ease;
+}
+
+nav:hover {
+  border: 1px solid var(--foreground);
+  box-shadow: 0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    inset 0 0 10px var(--primary),
+    inset 0 0 20px var(--primary);
+}
+
+.act {
+  border: 1px solid var(--foreground);
+  box-shadow: 0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    inset 0 0 10px var(--primary),
+    inset 0 0 20px var(--primary);
+}
+
+.txtani {
+  position: relative;
+  overflow: hidden;
+  line-height: 100%;
+  transform: none;
+}
+
+.txtani::after {
+  content: attr(disp);
+  color: var(--background);
+  position: absolute;
+  width: 100%;
+  bottom: -170%;
+  left: 50%;
+  transform: translateX(-50%) skew(25deg) rotate(15deg);
+  transition: all 0.3s ease-out;
+}
+
+.txtani::before {
+  content: attr(disp);
+  color: var(--background);
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-out;
+}
+
+button:hover .txtani::before {
+  top: -170%;
+  transform: translateX(-50%) skew(25deg) rotate(15deg);
+}
+
+button:hover .txtani::after {
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+
+
+
+
+
+.contact form {
+  width: 90%;
+  border: 1px solid var(--foreground);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+  justify-content: space-evenly;
+  transition: all .8s ease;
+}
+
+.contact form:hover {
+  border: 1px solid var(--foreground);
+  box-shadow: 0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    inset 0 0 10px var(--primary),
+    inset 0 0 20px var(--primary);
+}
+
+.contact form label {
+  position: relative;
+  width: 70%;
+  height: 50px;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.contact form label:has(textarea) {
+  height: 150px;
+}
+
+/* Common input styling */
+.contact form label input,
+.contact form label textarea {
+  all: unset;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+  padding: 0;
+  border-bottom: 1px solid var(--foreground);
+  transition: all 0.5s ease;
+}
+
+/* Enhanced placeholder behavior */
+.contact form label:not(:focus-within) input::placeholder,
+.contact form label:not(:focus-within) textarea::placeholder {
+  color: transparent;
+  transition: all 0.5s ease;
+}
+
+.contact form label input:focus::placeholder,
+.contact form label textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Textarea specific */
+.contact form label textarea {
+  height: 150px;
+  resize: none;
+  line-height: 1.5;
+  overflow-y: auto;
+}
+
+/* Label positioning */
+.contact form label p {
+  position: absolute;
+  top: 20px;
+  transition: all .3s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* Label animation on focus/filled */
+.contact form label input:focus~p,
+.contact form label input:not(:placeholder-shown)~p,
+.contact form label textarea:focus~p,
+.contact form label textarea:not(:placeholder-shown)~p {
+  top: -25px;
+  font-size: 1.4rem;
+}
+
+/* Validation styling */
+.contact form label .error-message {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 0.875rem;
+  color: #e53935;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* Show error messages for invalid inputs that are not empty */
+.contact form label input:invalid:not(:placeholder-shown)~.error-message,
+.contact form label textarea:invalid:not(:placeholder-shown)~.error-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Validation indicators */
+.contact form label p::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Valid state */
+.contact form label input:valid:not(:placeholder-shown)~p::after,
+.contact form label textarea:valid:not(:placeholder-shown)~p::after {
+  background-color: var(--secondary);
+  opacity: 1;
+  box-shadow: 0 0 5px var(--secondary);
+}
+
+/* Invalid state */
+.contact form label input:invalid:not(:placeholder-shown)~p::after,
+.contact form label textarea:invalid:not(:placeholder-shown)~p::after {
+  background-color: #e53935;
+  opacity: 1;
+  box-shadow: 0 0 5px #e53935;
+}
+
+/* Border colors based on validation */
+.contact form label input:valid:not(:placeholder-shown),
+.contact form label textarea:valid:not(:placeholder-shown) {
+  border-bottom: 2px solid var(--secondary);
+}
+
+.contact form label input:invalid:not(:placeholder-shown),
+.contact form label textarea:invalid:not(:placeholder-shown) {
+  border-bottom: 2px solid #e53935;
+}
+
+.contact form label input:focus,
+.contact form label textarea:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+/* Shake animation for invalid submissions */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.contact form label.shake input,
+.contact form label.shake textarea {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Form specific styles */
+#contactForm label {
+  margin-bottom: 2rem;
+  /* Ensure enough space for error messages */
+  position: relative;
+}
+
+/* Error message specific styling */
+.form-error-message {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  display: block;
+  width: 100%;
+}
+
+/* Responsive adjustments for the form */
+@media (max-width: 768px) {
+  #contactForm label {
+    width: 90% !important;
+  }
+
+  #contactForm .form-error-message {
+    font-size: 0.7rem;
+  }
+}
+
+.button {
+  position: relative;
+  height: 8%;
+  background-color: var(--primary);
+  color: var(--background);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+
+.button p::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  bottom: 6px;
+  left: 0;
+  width: 0%;
+  height: 1%;
+  border: 0px solid var(--background);
+  border-radius: 200px;
+  background-color: var(--background);
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.button:hover p::after {
+  border: 1px solid var(--background);
+  width: 100%;
+}
+
+.progress {
+  width: 100%;
+  background-color: #fff3;
+  height: 2px;
+  z-index: 10;
+}
+
+.progress #bar {
+  width: 50%;
+  height: 2px;
+  border: 1px solid var(--foreground);
+  box-shadow: 0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    0 0 30px var(--primary);
 }

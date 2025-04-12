@@ -1,0 +1,77 @@
+.procard {
+    /* min-height: 210px; */
+    min-height: 50px;
+    transition: all 0.5s ease;
+}
+
+.procon {
+    grid-template-rows: repeat(36, 1fr);
+}
+
+.procard h1 {
+    bottom: 0;
+    font-weight: bolder;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.procard:hover h1 {
+    bottom: calc(100% - 50px);
+    filter: drop-shadow(0 0 2px black) drop-shadow(0 0 10px black) drop-shadow(0 0 50px black);
+}
+
+.ts {
+    bottom: -50%;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.ts p {
+    color: var(--foreground);
+    background-color: var(--background);
+    font-weight: 800;
+    border: 1px solid black;
+    transition: all 0.3s ease;
+}
+
+.ts p:hover {
+    color: var(--background);
+    background-color: var(--foreground);
+}
+
+.procard:hover .ts {
+    bottom: 0;
+}
+
+.procard .blay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, hsla(0, 0%, 0%, .8) -10%, hsla(0, 0%, 100%, 0) 50%);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.procard .gh {
+    cursor: pointer;
+    position: absolute;
+    top: calc(100% - 35px);
+    transition: all 0.6s ease;
+    z-index: 5;
+    filter: invert(1) drop-shadow(0 0 5px black);
+    transition-delay: .15s;
+}
+
+.procard:hover .gh {
+    top: 10px;
+}
+
+.filr{
+    backdrop-filter: brightness(1) blur(0px);
+}
+
+.filr:hover{
+    backdrop-filter: brightness(1.5) blur(2px);
+}

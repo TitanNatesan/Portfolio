@@ -1,0 +1,195 @@
+/* Base responsive styles */
+
+/* Extra small devices (phones, 640px and down) */
+@media only screen and (max-width: 640px) {
+    :root {
+        /* Adjusted typography for smaller screens */
+        --font-size-xs: 0.7rem;
+        --font-size-sm: 0.8rem;
+        --font-size-base: 0.9rem;
+        --font-size-lg: 1rem;
+        --font-size-xl: 1.15rem;
+        --font-size-2xl: 1.25rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-4xl: 1.75rem;
+
+        /* Reduced spacing for mobile */
+        --space-8: 1.5rem;
+        --space-16: 3rem;
+    }
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        overflow-x: hidden;
+    }
+
+    section {
+        margin-top: 60px;
+        padding: 0 var(--space-4);
+    }
+
+    /* Navigation adjustments for mobile */
+    nav {
+        width: 80%;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        border-radius: 30px;
+        padding: 10px;
+    }
+
+    /* Form element adjustments */
+    .contact form {
+        width: 100%;
+        padding: 30px 15px;
+        border-radius: 20px;
+    }
+
+    .contact form label {
+        width: 90%;
+    }
+
+    .contact form label input,
+    .contact form label textarea {
+        font-size: 1.2rem;
+    }
+
+    /* Particle effects adjustment */
+    #particles-js {
+        filter: blur(40px) brightness(0.3) saturate(1);
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 641px to 768px) */
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+    :root {
+        --font-size-base: 0.95rem;
+    }
+
+    body {
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto 1fr;
+    }
+
+    section {
+        margin-top: 80px;
+    }
+
+    nav {
+        width: 70%;
+    }
+
+    .contact form {
+        width: 95%;
+    }
+
+    .contact form label {
+        width: 80%;
+    }
+}
+
+/* Medium devices (landscape tablets, 769px to 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    body {
+        grid-template-columns: 25% 65% 10%;
+    }
+
+    nav {
+        width: 60%;
+    }
+
+    .contact form {
+        width: 90%;
+    }
+}
+
+/* Large devices (laptops/desktops, 1025px to 1440px) */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+
+    /* Default styling works well here, minor adjustments */
+    body {
+        grid-template-columns: 30% 60% 10%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1441px and up) */
+@media only screen and (min-width: 1441px) {
+    :root {
+        /* Slightly larger typography for huge screens */
+        --font-size-base: 1.1rem;
+        --font-size-lg: 1.25rem;
+        --font-size-xl: 1.4rem;
+        --font-size-2xl: 1.65rem;
+        --font-size-3xl: 2rem;
+        --font-size-4xl: 2.5rem;
+
+        /* Increased spacing for large screens */
+        --space-8: 2.5rem;
+        --space-16: 5rem;
+    }
+
+    body {
+        grid-template-columns: 25% 65% 10%;
+    }
+
+    .contact form {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+/* Touch device specific adjustments */
+@media (hover: none) {
+
+    /* Enhance tap targets for touch devices */
+    nav {
+        padding: 12px;
+    }
+
+    .button {
+        min-height: 44px;
+        /* Minimum size for touch targets */
+    }
+
+    /* Disable hover effects that might cause issues on touch devices */
+    .button:hover p::after {
+        transition: none;
+    }
+
+    .txtani::after,
+    .txtani::before {
+        display: none;
+    }
+}
+
+/* Orientation specific adjustments */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    section {
+        min-height: 120vh;
+        /* Ensure content has enough space in landscape */
+    }
+
+    body {
+        height: auto;
+    }
+
+    .contact form {
+        padding: 20px 0;
+    }
+
+    .contact form label {
+        margin: 10px auto;
+    }
+}
+
+/* Ensure proper scrolling on iOS */
+@supports (-webkit-touch-callout: none) {
+
+    body,
+    main {
+        -webkit-overflow-scrolling: touch;
+    }
+}
