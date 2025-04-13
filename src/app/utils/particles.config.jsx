@@ -4,7 +4,7 @@ export const particlesConfig = {
     detectRetina: true,
     background: {
         color: { value: "#000" },
-        opacity: 0.2
+        opacity: 0.25
     },
     interactivity: {
         events: {
@@ -21,7 +21,7 @@ export const particlesConfig = {
             onHover: {
                 enable: true,
                 mode: ["connect", "grab"],
-                // parallax: { enable: true, force: 30, smooth: 10 },
+                parallax: { enable: true, force: 30, smooth: 10 },
             },
             resize: true
         },
@@ -77,11 +77,11 @@ export const particlesConfig = {
             triangles: {
                 enable: false,
                 color: "#fff",
-                opacity: .1,
+                opacity: .5,
             }
         },
         collisions: {
-            enable: true,
+            enable: false,
             mode: "bounce",
             overlap: {
                 enable: true,
@@ -102,19 +102,19 @@ export const particlesConfig = {
             attract: {
                 enable: true,
                 easing: "ease",
-                rotateX: -10000,
-                rotateY: -10000,
+                rotateX: -1000,
+                rotateY: -1000,
             },
-            // vibrate: true,
+            // vibrate: true,  
             warp: false,
             angle: { offset: false, value: 90, }
         },
         number: {
             density: {
                 enable: true,
-                area: 1000
+                area: 1500
             },
-            value: 200
+            value: 250
         },
         opacity: {
             value: 1,
@@ -172,17 +172,17 @@ export const particlesConfig = {
             spread: 1,
         },
     },
-    // polygon: {
-    //     draw: {
-    //         enable: true,
-    //         lineColor: "#fff",
-    //         lineWidth: .1
-    //     },
-    //     enable: true,
-    //     move: { radius: 100 },
-    //     inline: { arrangement: "equidistant" },
-    //     scale: 1,
-    //     type: "inline",
-    //     url: "https://particles.js.org/images/smalldeer.svg",
-    // },
+    polygon: {
+        draw: {
+            enable: true,
+            lineColor: "#fff",
+            lineWidth: .1
+        },
+        enable: true,
+        move: { radius: 100 },
+        inline: { arrangement: "equidistant" },
+        scale: 1,
+        type: "inline",
+        url: "https://particles.js.org/images/smalldeer.svg",
+    },
 };

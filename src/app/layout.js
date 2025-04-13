@@ -22,9 +22,9 @@ export default function RootLayout({ children }) {
         <Script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></Script>
       </head>
       <body className={`antialiased`}>
-        <div className="absolute w-full h-full z-0 flex justify-center items-center">
+        {/* <div className="absolute w-full h-full z-0 flex justify-center items-center">
           <img className="absolute bg-blend-difference invert opacity-15 scale-95" src="https://particles.js.org/images/smalldeer.svg" alt="svg" />
-        </div>
+        </div> */}
 
         <Progress />
         <ParticlesComponent options={particlesConfig} />
