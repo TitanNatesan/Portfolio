@@ -1,10 +1,10 @@
 "use client";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { loadFull } from "tsparticles";
 import { useCallback } from "react";
 import { loadPolygonMaskPlugin } from "tsparticles-plugin-polygon-mask";
 import { loadParallaxMover } from "tsparticles-move-parallax";
+import { tsParticles } from "tsparticles-engine";
 
 export default function ParticlesComponent({ options }) {
 
@@ -122,11 +122,10 @@ export default function ParticlesComponent({ options }) {
         detectRetina: true
     };
 
-    const particlesInit = useCallback(async (engine) => {
-        await loadFull(engine);
-        await loadSlim(engine);
-        await loadParallaxMover(engine);
-        await loadPolygonMaskPlugin(engine);
+    const particlesInit = useCallback(async () => {
+        await loadSlim(tsParticles);
+        await loadParallaxMover(tsParticles);
+        await loadPolygonMaskPlugin(tsParticles);
     }, []);
 
     return (

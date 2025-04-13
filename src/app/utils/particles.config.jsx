@@ -1,6 +1,7 @@
 export const particlesConfig = {
     autoPlay: true,
     fpsLimit: 120,
+    smooth: true,
     detectRetina: true,
     background: {
         color: { value: "#000" },
@@ -64,9 +65,16 @@ export const particlesConfig = {
                 links: { opacity: 0.1 },
                 radius: 250
             },
-        }
+        },
     },
     particles: {
+        number: {
+            density: {
+                enable: false,
+                area: 800
+            },
+            value: 250
+        },
         color: { value: '#fff' },
         links: {
             color: "#fff",
@@ -90,31 +98,30 @@ export const particlesConfig = {
         },
         move: {
             enable: true,
-            direction: "bottom",
+            direction: "right",
             outModes: "out",
             gravity: {
                 enable: true,
                 acceleration: 9.81,
                 maxSpeed: 1
             },
-            speed: 1,
+            // drift: { max: .1, min: 0 },
+            // trail:{
+            //     enable: true,
+            //     length: 20,
+            //     fillColor: "#0000",
+            // },
+            speed: 2,
             bounce: true,
             attract: {
-                enable: true,
+                enable: false,
                 easing: "ease",
                 rotateX: -1000,
                 rotateY: -1000,
             },
             // vibrate: true,  
-            warp: false,
+            warp: true,
             angle: { offset: false, value: 90, }
-        },
-        number: {
-            density: {
-                enable: true,
-                area: 1500
-            },
-            value: 250
         },
         opacity: {
             value: 1,
@@ -169,7 +176,6 @@ export const particlesConfig = {
             blur: 10,
             color: "#fff",
             offset: { x: 0, y: 0 },
-            spread: 1,
         },
     },
     polygon: {
