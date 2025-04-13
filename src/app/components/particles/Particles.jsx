@@ -1,7 +1,7 @@
 "use client";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-// import { loadFull } from "tsparticles";
+import { loadFull } from "tsparticles";
 import { useCallback } from "react";
 // import { loadPolygonMaskPlugin } from "tsparticles-plugin-polygon-mask";
 import { loadParallaxMover } from "tsparticles-move-parallax";
@@ -123,7 +123,7 @@ export default function ParticlesComponent({ options }) {
     };
 
     const particlesInit = useCallback(async (engine) => {
-        // await loadFull(engine);
+        await loadFull(engine);
         // await loadParallaxMover(engine);
         await loadSlim(engine);
         await loadParallaxMover(engine);
