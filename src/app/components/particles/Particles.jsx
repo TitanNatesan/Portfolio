@@ -2,7 +2,6 @@
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { useCallback } from "react";
-import { loadPolygonMaskPlugin } from "tsparticles-plugin-polygon-mask";
 import { loadParallaxMover } from "tsparticles-move-parallax";
 import { tsParticles } from "tsparticles-engine";
 
@@ -125,7 +124,7 @@ export default function ParticlesComponent({ options }) {
     const particlesInit = useCallback(async () => {
         await loadSlim(tsParticles);
         await loadParallaxMover(tsParticles);
-        await loadPolygonMaskPlugin(tsParticles);
+        // await loadPolygonMaskPlugin(tsParticles);
     }, []);
 
     return (
