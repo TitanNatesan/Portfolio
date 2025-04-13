@@ -20,7 +20,7 @@ export const particlesConfig = {
             },
             onHover: {
                 enable: true,
-                mode: ["connect","grab"],
+                mode: ["connect", "grab"],
                 // parallax: { enable: true, force: 30, smooth: 10 },
             },
             resize: true
@@ -61,7 +61,7 @@ export const particlesConfig = {
             // },
             connect: {
                 distance: 100,
-                links: {opacity: 0.1},
+                links: { opacity: 0.1 },
                 radius: 250
             },
         }
@@ -81,7 +81,7 @@ export const particlesConfig = {
             }
         },
         collisions: {
-            enable: false,
+            enable: true,
             mode: "bounce",
             overlap: {
                 enable: true,
@@ -90,47 +90,29 @@ export const particlesConfig = {
         },
         move: {
             enable: true,
-            direction: "right",
-            outModes: {
-                top: "out",
-                bottom: "out",
-                left: "out",
-                right: "out",
-            },
-            trail: {
-                enable: false,
-                length: 10,
-                fillColor: "#fff"
-            },
+            direction: "bottom",
+            outModes: "out",
             gravity: {
                 enable: true,
                 acceleration: 9.81,
-                maxSpeed: .2
+                maxSpeed: 1
             },
-            spin: {
-                enable: false,
-                acceleration: .1,
-                position: {
-                    x: 50,
-                    y: 50
-                },
-            },
-            speed: .8,
+            speed: 1,
             bounce: true,
             attract: {
                 enable: true,
-                easing: "ease-in-out",
-                rotateX: -1000,
-                rotateY: -1000,
+                easing: "ease",
+                rotateX: -10000,
+                rotateY: -10000,
             },
-            vibrate: false,
-            warp: true,
+            // vibrate: true,
+            warp: false,
             angle: { offset: false, value: 90, }
         },
         number: {
             density: {
-                enable: false,
-                area: 2000
+                enable: true,
+                area: 1000
             },
             value: 200
         },
@@ -190,17 +172,17 @@ export const particlesConfig = {
             spread: 1,
         },
     },
-    polygon: {
-        draw: {
-            enable: true,
-            lineColor: "#fff",
-            lineWidth: .1
-        },
-        enable: true,
-        move: { radius: 10 },
-        inline: { arrangement: "equidistant" },
-        scale: 1,
-        type: "inline",
-        url: "https://particles.js.org/images/smalldeer.svg",
-    },
+    // polygon: {
+    //     draw: {
+    //         enable: true,
+    //         lineColor: "#fff",
+    //         lineWidth: .1
+    //     },
+    //     enable: true,
+    //     move: { radius: 100 },
+    //     inline: { arrangement: "equidistant" },
+    //     scale: 1,
+    //     type: "inline",
+    //     url: "https://particles.js.org/images/smalldeer.svg",
+    // },
 };
