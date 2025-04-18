@@ -24,21 +24,21 @@ export default function Intro() {
                 className="text-2xl"
             />
             <p style={{ color: `var(--foreground)` }} className="text-xl text-justify indent-5">
-                Hi, I’m <b>Titan</b> Natesan. 
+                Hi, I’m <b>Titan</b> Natesan.
                 I’m a passionate <b>computer science enthusiast </b>
-                with a creative spark and an <b>entrepreneurial</b> mindset. 
-                I believe that <b>coding</b>, <b>innovation</b>, 
-                and a <b>love</b> for problem solving 
-                can transform <b>ideas into reality</b>. 
-                In this portfolio, you’ll find a showcase of <b>my projects</b>, 
-                the skills I’ve honed through <b>hands-on</b> learning, 
-                and my journey toward building a groundbreaking startup. 
-                I’m excited to <b>share my work</b> and vision with 
-                you—<b>welcome</b> to my creative space where 
+                with a creative spark and an <b>entrepreneurial</b> mindset.
+                I believe that <b>coding</b>, <b>innovation</b>,
+                and a <b>love</b> for problem solving
+                can transform <b>ideas into reality</b>.
+                In this portfolio, you’ll find a showcase of <b>my projects</b>,
+                the skills I’ve honed through <b>hands-on</b> learning,
+                and my journey toward building a groundbreaking startup.
+                I’m excited to <b>share my work</b> and vision with
+                you—<b>welcome</b> to my creative space where
                 <b> technology meets innovation.</b>
             </p>
-            <button style={{ backgroundColor: `var(--primary)` }} className="cursor-pointer rounded-full text-xl flex justify-center items-center w-[22%] p-3">
-                <p style={{ color: `var(--primary)` }} disp="Get In Touch !" className="txtani ">Get In Touch !</p>
+            <button style={{ backgroundColor: `var(--primary)` }} className="cursor-pointer p-[10px] rounded-full text-xl flex justify-center items-center w-[22%]">
+                <p style={{ color: `var(--primary)` }} disp="Get In Touch !" className="txtani">Get In Touch !</p>
             </button>
         </section>
     )

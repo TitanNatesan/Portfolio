@@ -40,7 +40,7 @@ export default function Service() {
     return (
         <section>
             <Hair name={"Service"} />
-            <h1 className="text-7xl"><b>My</b> Specializations</h1>
+            <h1 className="lg:text-7xl sm:text-2xl 2xl:text-3xl"><b>My</b> Specializations</h1>
             <ServiceCard services={services} />
         </section>
     )

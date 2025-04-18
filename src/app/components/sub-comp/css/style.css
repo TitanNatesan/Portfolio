@@ -46,10 +46,10 @@
 
 .skilcard img {
     aspect-ratio: 1/1;
-    transition: all 0.3s ease-in-out 1.2s;
+    transition: all 0.3s cubic-bezier(0.75, -1, 0.25, 2) 1.2s;
 }
 
 .skilcard:hover img {
     transform: scale(.8);
-    transition: all 0.3s ease-in-out 0s;
+    transition: all 1s linear(0, 0.221 2.4%, 1.316 8%, 1.506 10.8%, 1.396 13.2%, 0.842 18.8%, 0.744 21.6%, 1.128 32%, 0.935 42.8%, 1.033 53.6%, 0.984 64.4%, 1) 0s;
 }

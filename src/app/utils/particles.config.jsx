@@ -103,7 +103,7 @@ export const particlesConfig = {
             gravity: {
                 enable: true,
                 acceleration: 9.81,
-                maxSpeed: 1
+                maxSpeed: .5
             },
             // drift: { max: .1, min: 0 },
             // trail:{
@@ -116,8 +116,8 @@ export const particlesConfig = {
             attract: {
                 enable: false,
                 easing: "ease",
-                rotateX: -1000,
-                rotateY: -1000,
+                rotateX: -100,
+                rotateY: -100,
             },
             // vibrate: true,  
             warp: true,
@@ -173,22 +173,9 @@ export const particlesConfig = {
         },
         shadow: {
             enable: true,
-            blur: 10,
+            blur: 5,
             color: "#fff",
             offset: { x: 0, y: 0 },
         },
-    },
-    polygon: {
-        draw: {
-            enable: true,
-            lineColor: "#fff",
-            lineWidth: .1
-        },
-        enable: true,
-        move: { radius: 100 },
-        inline: { arrangement: "equidistant" },
-        scale: 1,
-        type: "inline",
-        url: "https://particles.js.org/images/smalldeer.svg",
     },
 };

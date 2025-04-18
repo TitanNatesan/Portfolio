@@ -62,7 +62,6 @@ span {
   color: var(--foreground);
 }
 
-
 /* Light theme */
 @media (prefers-color-scheme: light) {
   :root {
@@ -98,6 +97,8 @@ b {
 
 html {
   scroll-behavior: smooth;
+  height: fit-content;
+  width: 100%;
 }
 
 body {
@@ -108,7 +109,7 @@ body {
   /* min-height: 100vh; */
   color: var(--primary);
   font-size: var(--font-size-base);
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 30% 60% 10%;
   grid-template-rows: auto 1fr;
   height: 100vh;
@@ -125,7 +126,8 @@ main::-webkit-scrollbar {
 }
 
 main {
-  /* max-height: 100vh; */
+  max-height: 100vh;
+  height: auto;
   overflow-y: auto;
   scroll-snap-type: y proximity;
   scroll-behavior: smooth;
@@ -164,14 +166,14 @@ section {
 }
 
 nav {
-  /* display: none; */
   width: 40%;
   min-width: 80px;
   margin: auto;
   border: 1px solid var(--primary);
   color: var(--foreground);
   box-shadow: none;
-  transition: all 0.8s ease;
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
 }
 
 nav:hover {

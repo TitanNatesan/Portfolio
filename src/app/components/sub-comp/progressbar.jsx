@@ -29,7 +29,7 @@ export default function Progress() {
     }, []);
 
     return (
-        <div className="absolute w-full progress">
+        <div className="absolute w-full progress top-0 left-0">
             <div
                 id="bar"
                 style={{

@@ -20,21 +20,24 @@ export default function SideCard() {
         { name: "WhatsApp", src: "/icons/whatsapp.png", comp: <WhatsApp className={ss} /> },
     ]
     return (
-        <aside className="sidecard transition-all duration-800 flex flex-col justify-evenly items-center border bg-[#0001] max-w-[500px] min-w-[400px] h-[94%] shadow-lg hover:backdrop-blur hover:bg-[#fff1]">
+        <aside className="sidecard transition-all duration-800 flex flex-col justify-evenly items-center 
+        border bg-[#0001] max-w-[500px] min-w[300px] h-[94%] shadow-lg 
+        hover:backdrop-blur hover:bg-[#fff1] 
+         ">
             <header className="flex w-full justify-evenly items-center h-[10%] bg-[#0000]">
                 <h4 className="w-[40%] text-center text-4xl"><GlichText /></h4>
                 <h4 className="w-[40%] text-right pr-[1%] text-xl">FullStack Dev <b>&</b><br />AI Enthusiastic </h4>
             </header>
             <TiltCard />
-            <div className="flex mx-[2%] justify-evenly items-center bg-[#0000]">
+            <div className="flex mx-[2%] justify-evenly items-center bg-[#0000] ">
                 {social.map((item, index) => (
-                    <div key={index} className=" icon flex justify-center items-center w-[80px] h-[65px] p-[3px] m-[2%] rounded-full transition-all duration-500" >
+                    <div key={index} className=" icon flex justify-center items-center w-[80px] h-[65px] p-[3px] rounded-full transition-all duration-500" >
                         <p>{item.name}</p>
                         {item.comp}
                     </div>
                 ))}
             </div>
-            <button className="rounded-full flex justify-center items-center ">
+            <button className="rounded-full flex justify-center items-center">
                 <p className="text-2xl relative ">Download Resume</p>
             </button>
         </aside>
