@@ -18,8 +18,13 @@ export default function ProjectsSection() {
                         <div
                             key={project.name}
                             className="project-card"
-                            style={{ backgroundImage: `url(${project.image})` }}
                         >
+                            <img
+                                src={project.image}
+                                alt={project.name}
+                                className="project-card-img"
+                                loading="lazy"
+                            />
                             <div className="project-overlay">
                                 <h3 className="project-name">{project.name}</h3>
                                 <p className="project-desc">{project.desc}</p>

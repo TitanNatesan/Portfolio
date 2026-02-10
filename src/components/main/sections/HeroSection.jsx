@@ -32,7 +32,7 @@ export default function HeroSection() {
                 <p className="hero-desc">
                     Hi, I'm <b>Titan</b> Natesan. I'm a passionate <b>computer science enthusiast</b> with a creative spark and an <b>entrepreneurial</b> mindset. I believe that <b>coding</b>, <b>innovation</b>, and a <b>love</b> for problem solving can transform <b>ideas into reality</b>.
                 </p>
-                <button className="cta-button starry-btn">
+                <button className="cta-button starry-btn" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                     <span>Get In Touch</span>
                 </button>
             </div>

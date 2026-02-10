@@ -23,7 +23,7 @@ export default function SkillsSection() {
                         {fullStackSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <img src={skill.img} alt={skill.name} className="skill-img" />
+                                    <img src={skill.img} alt={skill.name} className="skill-img" loading="lazy" />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
@@ -41,7 +41,7 @@ export default function SkillsSection() {
                         {devToolsSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <img src={skill.img} alt={skill.name} className="skill-img" />
+                                    <img src={skill.img} alt={skill.name} className="skill-img" loading="lazy" />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
@@ -59,7 +59,7 @@ export default function SkillsSection() {
                         {aiMlSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <img src={skill.img} alt={skill.name} className="skill-img" />
+                                    <img src={skill.img} alt={skill.name} className="skill-img" loading="lazy" />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
