@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
+/* Light theme only - explicitly disable dark mode */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    color-scheme: light only;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    @apply min-h-screen overflow-x-hidden;
+    @apply  text-slate-900;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* Ensure content stays above particles */
+main {
+    @apply relative z-10;
+}
+
+/* Starry button effect - global */
+.starry-btn {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.starry-btn::before,
+.starry-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.starry-btn>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* Layer 1: scattered stars drifting */
+.starry-btn::before {
+    background:
+        radial-gradient(2px 2px at 10% 20%, rgba(255, 255, 255, 0.9) 0, transparent 100%),
+        radial-gradient(2px 2px at 30% 70%, rgba(255, 255, 255, 0.7) 0, transparent 100%),
+        radial-gradient(2px 2px at 55% 35%, rgba(255, 255, 255, 0.8) 0, transparent 100%),
+        radial-gradient(2px 2px at 80% 60%, rgba(255, 255, 255, 0.9) 0, transparent 100%),
+        radial-gradient(2px 2px at 20% 85%, rgba(255, 255, 255, 0.6) 0, transparent 100%),
+        radial-gradient(2px 2px at 70% 15%, rgba(255, 255, 255, 0.75) 0, transparent 100%);
+    opacity: 0.6;
+    transform: translateY(0);
+    animation: starry-drift 10s linear infinite;
+}
+
+/* Layer 2: twinkling overlay */
+.starry-btn::after {
+    background:
+        radial-gradient(3px 3px at 25% 25%, rgba(255, 255, 255, 1) 0, transparent 100%),
+        radial-gradient(3px 3px at 65% 40%, rgba(255, 255, 255, 1) 0, transparent 100%),
+        radial-gradient(3px 3px at 45% 80%, rgba(255, 255, 255, 1) 0, transparent 100%);
+    opacity: 0.2;
+    animation: starry-twinkle 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes starry-drift {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes starry-twinkle {
+    0% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
+}
+
+/* Hide white stars on hover (since background becomes white) */
+.starry-btn:hover::before,
+.starry-btn:hover::after {
+    opacity: 0;
+}
+
+/* Page Layout Container */
+.page-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: inherit;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1600px;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Extra Large Screens - keep content centered with max-width */
+@media (min-width: 1600px) {
+    .content-container {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .page-wrapper {
+        min-height: auto;
+    }
+
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        max-width: 100%;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+    }
 }

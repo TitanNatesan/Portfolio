@@ -1,0 +1,101 @@
+/* Navbar Styles */
+
+.navbar {
+    transform-style: preserve-3d;
+}
+
+/* Mobile Navbar Header */
+.mobile-navbar {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-menu-dropdown {
+    border-top: none;
+}
+
+/* Hide mobile nav on desktop via Tailwind lg:hidden already */
+
+/* Active item pulse effect */
+.navbar a.active {
+    animation: pulse-mono 500ms infinite;
+}
+
+@keyframes pulse-mono {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+}
+
+/* Slide Animations for Navbar Icons */
+
+/* Slide Up (Index Increasing) */
+@keyframes slide-up-out {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-up-in {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide Down (Index Decreasing) */
+@keyframes slide-down-out {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-down-in {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-up-out {
+    animation: slide-up-out 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up-in {
+    animation: slide-up-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down-out {
+    animation: slide-down-out 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down-in {
+    animation: slide-down-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
