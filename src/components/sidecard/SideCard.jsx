@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import './sidecard.css';
 import { FaLinkedinIn, FaInstagram, FaGithub, FaFacebookF, FaWhatsapp, FaDownload } from 'react-icons/fa';
@@ -16,10 +16,22 @@ const socialLinks = [
 export default function SideCard() {
     const [tilt, setTilt] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const imageRef = useRef(null);
 
+    // Detect mobile to disable hover/tilt effects
+    useEffect(() => {
+        const checkMobile = () => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            setIsMobile(window.innerWidth <= 1024 || isTouchDevice);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const handleMouseMove = (e) => {
-        if (!imageRef.current) return;
+        if (isMobile || !imageRef.current) return;
         const rect = imageRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -32,17 +44,20 @@ export default function SideCard() {
         setTilt({ x: tiltX, y: tiltY });
     };
 
-    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseEnter = () => {
+        if (!isMobile) setIsHovering(true);
+    };
 
     const handleMouseLeave = () => {
+        if (isMobile) return;
         setIsHovering(false);
         setTilt({ x: 0, y: 0 });
     };
 
     return (
-        <section className="sidecard relative w-full lg:fixed lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:h-[94vh] lg:w-[35%] lg:min-w-80 lg:max-w-125 border-b-2 lg:border-2 border-black lg:rounded-tl-[5rem] lg:rounded-br-[5rem] flex flex-col z-40 lg:pt-0">
+        <section className="sidecard relative w-auto mx-4 lg:mx-0 lg:w-[35%] lg:fixed lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:h-[94vh] lg:min-w-80 lg:max-w-125 border-2 border-solid border-black rounded-tl-[3rem] rounded-br-[3rem] lg:rounded-tl-[5rem] lg:rounded-br-[5rem] flex flex-col z-40 lg:pt-0 mb-8 lg:mb-0 bg-white">
             {/* Head Section */}
-            <header className="sidecard-head flex justify-between items-center px-8 py-12 border-b border-neutral-200 rounded-tl-[5rem]">
+            <header className="sidecard-head flex justify-between items-center px-8 py-12 border-b border-neutral-200 rounded-tl-[3rem] lg:rounded-tl-[5rem]">
                 <h2 className="hero glitch layers text-4xl font-bold tracking-tight" data-text="TitanDev">
                     <span>Titan<b className="text-neutral-500 font-bold">Dev</b></span>
                 </h2>
@@ -83,11 +98,11 @@ export default function SideCard() {
                     <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-black bg-black">
                         <Image
                             src="/profile-ghibli.png"
-                            alt="Titan - AI Engineer"
+                            alt="Titan Natesan - Full Stack Developer and AI Engineer"
                             fill
                             sizes="(max-width: 400px) 280px, 280px"
                             priority
-                            className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                            className={`object-cover transition-all duration-500 ${isMobile ? 'grayscale-0' : 'grayscale hover:grayscale-0'}`}
                         />
 
                         {/* Shine Effect - Light source from top-left */}
@@ -122,7 +137,7 @@ export default function SideCard() {
             </div>
 
             {/* Foot Section - Social Links */}
-            <footer className="sidecard-foot px-8 py-12 border-t border-neutral-200 rounded-br-[5rem] flex flex-col items-center">
+            <footer className="sidecard-foot px-8 py-12 border-t border-neutral-200 rounded-br-[3rem] lg:rounded-br-[5rem] flex flex-col items-center">
                 {/* Social Icons */}
                 <div className="flex justify-center gap-4 mb-5">
                     {socialLinks.map((social) => (
@@ -131,13 +146,13 @@ export default function SideCard() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative w-16 h-16 flex items-center justify-center rounded-full bg-neutral-100 border border-neutral-300 text-black transition-all duration-300 hover:shadow-lg"
+                            className="group relative w-16 h-16 flex items-center justify-center rounded-full bg-neutral-100 border border-neutral-300 text-black transition-all duration-300 lg:hover:shadow-lg"
                             style={{ '--hover-color': social.color }}
                             aria-label={social.label}
                         >
-                            <social.icon className="w-8 h-8 transition-colors duration-300 group-hover:text-white" />
+                            <social.icon className="w-8 h-8 transition-colors duration-300 lg:group-hover:text-white" />
                             {/* Tooltip */}
-                            <span className="tooltip absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 text-xs font-medium text-white rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                            <span className="tooltip absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 text-xs font-medium text-white rounded opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
                                 {social.label}
                                 <span className="tooltip-arrow absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent" />
                             </span>

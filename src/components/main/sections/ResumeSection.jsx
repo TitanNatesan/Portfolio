@@ -3,7 +3,7 @@ import { timeline } from '../data/portfolioData';
 
 export default function ResumeSection() {
     return (
-        <section id="resume" className="section resume-section">
+        <section id="resume" className="section resume-section" aria-label="Education and Experience">
             <span className="section-tag floating-tag">
                 <ListCollapse className="w-4 h-4" />
                 Resume

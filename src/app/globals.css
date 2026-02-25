@@ -5,6 +5,10 @@
     color-scheme: light only;
 }
 
+.b {
+    border: 1px solid black;
+}
+
 /* Base styles */
 html {
     scroll-behavior: smooth;
@@ -12,13 +16,15 @@ html {
 
 body {
     @apply min-h-screen overflow-x-hidden;
-    @apply  text-slate-900;
+    @apply text-slate-900;
+    -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
 }
 
 img {
     -webkit-user-drag: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -99,10 +105,12 @@ main {
     }
 }
 
-/* Hide white stars on hover (since background becomes white) */
-.starry-btn:hover::before,
-.starry-btn:hover::after {
-    opacity: 0;
+/* Hide white stars on hover (since background becomes white) - desktop only */
+@media (hover: hover) {
+    .starry-btn:hover::before,
+    .starry-btn:hover::after {
+        opacity: 0;
+    }
 }
 
 /* Page Layout Container */
@@ -152,4 +160,45 @@ main {
         flex-direction: column;
         min-height: auto;
     }
+}
+
+/* ─── FOUC Prevention: Initial Load Hidden States ─── */
+/* Applied via body.page-loading, removed by useLoadAnime after timeline completes */
+body.page-loading .sidecard {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+body.page-loading .scroll-progress-container {
+    opacity: 0;
+}
+
+body.page-loading .hero-section .floating-tag {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+body.page-loading .hero-title {
+    opacity: 0;
+    transform: scale(0.85);
+}
+
+body.page-loading .typing-container {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+body.page-loading .hero-desc {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+body.page-loading .hero-section .cta-button {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+body.page-loading .navbar {
+    opacity: 0;
+    transform: translateY(30px);
 }

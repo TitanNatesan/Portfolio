@@ -12,18 +12,13 @@
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     background: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 50px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.role-badge:hover {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
 }
 
 /* Shimmer effect on hover */
@@ -39,10 +34,6 @@
             rgba(255, 255, 255, 0.6),
             transparent);
     transition: left 0.5s ease;
-}
-
-.role-badge:hover::before {
-    left: 100%;
 }
 
 .role-text {
@@ -278,6 +269,7 @@
         z-index: 10;
         overflow: hidden;
         flex-shrink: 0;
+        background: transparent !important;
     }
 
     .sidecard-head {
@@ -287,6 +279,8 @@
         gap: 0.75rem;
         padding: 2.5rem 1.5rem 1rem;
         border-radius: 0;
+        background: transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
     }
 
     .sidecard-head .hero {
@@ -314,6 +308,8 @@
     .sidecard-foot {
         padding: 1.5rem 1.5rem 2.5rem;
         gap: 1.25rem;
+        background: transparent;
+        border-top-color: rgba(0, 0, 0, 0.1);
     }
 
     .sidecard-foot a:not(.cta-button) {
@@ -340,10 +336,22 @@
     border-top-color: var(--hover-color, #000);
 }
 
-/* Social link hover effect - only for social icons, not cta-buttons */
-.sidecard-foot a:not(.cta-button):hover {
-    background-color: var(--hover-color);
-    border-color: var(--hover-color);
-    color: white;
-    transform: translateY(-3px);
+/* Social link hover effect - only for social icons, not cta-buttons - desktop only */
+@media (hover: hover) {
+    .sidecard-foot a:not(.cta-button):hover {
+        background-color: var(--hover-color);
+        border-color: var(--hover-color);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    .role-badge:hover {
+        background: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .role-badge:hover::before {
+        left: 100%;
+    }
 }

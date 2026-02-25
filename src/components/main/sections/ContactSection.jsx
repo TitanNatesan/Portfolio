@@ -67,7 +67,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="section contact-section">
+        <section id="contact" className="section contact-section" aria-label="Contact form">
             <span className="section-tag floating-tag">
                 <Send className="w-4 h-4" />
                 Contact

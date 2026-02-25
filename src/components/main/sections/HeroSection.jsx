@@ -3,8 +3,8 @@ import { House } from 'lucide-react';
 
 export default function HeroSection() {
     return (
-        <section id="home" className="section hero-section">
-            <span className="section-tag floating-tag">
+        <section id="home" className="section hero-section" aria-label="Introduction">
+            <span className="section-tag floating-tag" aria-hidden="true">
                 <House className="w-4 h-4" />
                 Hello, I'm
             </span>
@@ -12,7 +12,7 @@ export default function HeroSection() {
                 <h1 className="hero-title">
                     I'm <b>Titan</b>
                 </h1>
-                <div className="typing-container">
+                <div className="typing-container" aria-label="Full Stack Developer, AI Enthusiast, Backend Specialist, Python Developer">
                     <TextType
                         text={[
                             "Full Stack Developer",
@@ -32,7 +32,7 @@ export default function HeroSection() {
                 <p className="hero-desc">
                     Hi, I'm <b>Titan</b> Natesan. I'm a passionate <b>computer science enthusiast</b> with a creative spark and an <b>entrepreneurial</b> mindset. I believe that <b>coding</b>, <b>innovation</b>, and a <b>love</b> for problem solving can transform <b>ideas into reality</b>.
                 </p>
-                <button className="cta-button starry-btn" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <button className="cta-button starry-btn" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} aria-label="Navigate to contact section">
                     <span>Get In Touch</span>
                 </button>
             </div>

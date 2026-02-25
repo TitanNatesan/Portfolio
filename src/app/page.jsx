@@ -4,7 +4,7 @@ import Main from '@/components/main/Main';
 
 export default function Home() {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper" role="document">
       <div className="content-container">
         <SideCard />
         <Main />

@@ -73,7 +73,7 @@ export default function Navbar() {
             }
         };
 
-        mainContainer.addEventListener('scroll', handleScroll);
+        mainContainer.addEventListener('scroll', handleScroll, { passive: true });
         // Initial check without delay
         if (mainContainer.scrollTop > 50) setIsCollapsed(true);
 
@@ -220,18 +220,19 @@ export default function Navbar() {
     return (
         <>
             {/* Mobile Navbar - Floating Black Ball with Menu */}
-            <nav className="mobile-navbar lg:hidden fixed top-4 right-4 z-[100]">
+            <nav className="mobile-navbar lg:hidden fixed top-4 right-4 z-100" aria-label="Mobile navigation">
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="w-14 h-14 flex items-center justify-center rounded-full bg-black text-white shadow-lg transition-all duration-300 hover:scale-110"
+                    className="w-14 h-14 flex items-center justify-center rounded-full bg-black text-white shadow-lg transition-transform duration-300 active:scale-95"
                     aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={mobileMenuOpen}
                 >
                     {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
 
                 {/* Mobile Menu Dropdown - positioned below button */}
                 <div
-                    className={`absolute top-16 right-0 w-[200px] overflow-hidden transition-all duration-300 ease-out bg-white/95 backdrop-blur-md rounded-2xl border-2 border-black shadow-lg ${mobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0 border-0'}`}
+                    className={`absolute top-16 right-0 w-50 overflow-hidden transition-all duration-300 ease-out bg-white/95 backdrop-blur-md rounded-2xl border-2 border-black shadow-lg ${mobileMenuOpen ? 'max-h-100 opacity-100' : 'max-h-0 opacity-0 border-0'}`}
                 >
                     <div className="flex flex-col p-2 gap-1">
                         {navItems.map((item, index) => {
@@ -264,7 +265,7 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop Navbar - Original Vertical Design */}
-            <nav className="navbar hidden lg:block fixed right-12 top-1/2 -translate-y-1/2 z-50">
+            <nav className="navbar hidden lg:block fixed right-12 top-1/2 -translate-y-1/2 z-50" aria-label="Desktop navigation">
                 <div
                     onWheel={handleWheel}
                     onMouseEnter={handleNavbarMouseEnter}
@@ -273,7 +274,7 @@ export default function Navbar() {
                         relative flex flex-col items-center justify-center rounded-full border-2 border-black 
                         bg-white/5 hover:backdrop-blur-xs hover:bg-white/10
                         transition-all duration-500 ease-out
-                        w-[72px] ${isCollapsed ? 'h-[72px] p-4' : 'h-[80vh] px-4 py-12'}
+                        w-18 ${isCollapsed ? 'h-18 p-4' : 'h-[80vh] px-4 py-12'}
                     `}
                 >
                     {/* Top items */}
@@ -281,7 +282,7 @@ export default function Navbar() {
                         className={`
                             flex flex-col items-center overflow-hidden
                             transition-all duration-500 ease-out
-                            ${isCollapsed ? 'max-h-0 opacity-0 gap-0 pointer-events-none' : 'max-h-[500px] opacity-100 gap-7 mb-4'}
+                            ${isCollapsed ? 'max-h-0 opacity-0 gap-0 pointer-events-none' : 'max-h-125 opacity-100 gap-7 mb-4'}
                         `}
                         aria-hidden={isCollapsed}
                     >
@@ -353,7 +354,7 @@ export default function Navbar() {
                         className={`
                             flex flex-col items-center overflow-hidden
                             transition-all duration-500 ease-out
-                            ${isCollapsed ? 'max-h-0 opacity-0 gap-0 pointer-events-none' : 'max-h-[500px] opacity-100 gap-7 mt-4'}
+                            ${isCollapsed ? 'max-h-0 opacity-0 gap-0 pointer-events-none' : 'max-h-125 opacity-100 gap-7 mt-4'}
                         `}
                         aria-hidden={isCollapsed}
                     >

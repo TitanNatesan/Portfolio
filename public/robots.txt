@@ -1,0 +1,5 @@
+# Robots.txt for titandev.me
+User-agent: *
+Allow: /
+
+Sitemap: https://titandev.me/sitemap.xml

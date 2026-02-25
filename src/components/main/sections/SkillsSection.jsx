@@ -1,9 +1,10 @@
 import { Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import { fullStackSkills, devToolsSkills, aiMlSkills } from '../data/portfolioData';
 
 export default function SkillsSection() {
     return (
-        <section id="skills" className="section skills-section">
+        <section id="skills" className="section skills-section" aria-label="Technical Skills">
             <span className="section-tag floating-tag">
                 <Sparkles className="w-4 h-4" />
                 Skills
@@ -23,7 +24,7 @@ export default function SkillsSection() {
                         {fullStackSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <img src={skill.img} alt={skill.name} className="skill-img" loading="lazy" />
+                                    <Image src={skill.img} alt={skill.name} className="skill-img" width={50} height={50} />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
@@ -41,7 +42,7 @@ export default function SkillsSection() {
                         {devToolsSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <img src={skill.img} alt={skill.name} className="skill-img" loading="lazy" />
+                                    <Image src={skill.img} alt={skill.name} className="skill-img" width={50} height={50} />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
@@ -59,7 +60,7 @@ export default function SkillsSection() {
                         {aiMlSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <img src={skill.img} alt={skill.name} className="skill-img" loading="lazy" />
+                                    <Image src={skill.img} alt={skill.name} className="skill-img" width={50} height={50} />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
