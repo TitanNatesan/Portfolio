@@ -107,6 +107,7 @@ main {
 
 /* Hide white stars on hover (since background becomes white) - desktop only */
 @media (hover: hover) {
+
     .starry-btn:hover::before,
     .starry-btn:hover::after {
         opacity: 0;

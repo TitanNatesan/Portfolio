@@ -162,9 +162,10 @@ export default function SideCard() {
 
                 {/* Download Resume Button */}
                 <a
-                    href="/resume.pdf"
-                    download
+                    href="/Natesan-Resume.pdf"
+                    download="Natesan-Resume.pdf"
                     className="cta-button starry-btn"
+                    aria-label="Download resume"
                 >
                     <span>Download Resume</span>
                 </a>
