@@ -1,3 +1,8 @@
+const isMobileDevice = () => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth <= 1024 || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+};
+
 export const particlesConfig = {
     autoPlay: true,
     fpsLimit: 120,
@@ -10,11 +15,11 @@ export const particlesConfig = {
     interactivity: {
         events: {
             onClick: {
-                enable: true,
+                enable: !isMobileDevice(),
                 mode: ["attract"]
             },
             onHover: {
-                enable: true,
+                enable: !isMobileDevice(),
                 mode: ["connect", "grab"],
                 parallax: { enable: true, force: 30, smooth: 10 },
             },
@@ -57,7 +62,7 @@ export const particlesConfig = {
                 enable: false,
                 area: 800
             },
-            value: 150 // Reduced count for "lightweight" feel
+            value: isMobileDevice() ? 50 : 150 // Reduced count for mobile devices
         },
         color: { value: '#000' },
         links: {
