@@ -161,24 +161,25 @@
 
 @media (hover: hover) {
     .cta-button:hover {
-        background: #fff;
-        color: #000;
-        border: 2px solid #000;
+        background: transparent !important;
+        color: #000 !important;
+        border: 2px solid #000 !important;
         transform: translateY(-3px);
         box-shadow: 4px 4px 0 #000;
     }
 
     .cta-button.secondary:hover {
-        background: #fff;
-        color: #000;
-        border: 2px solid #000;
+        background: transparent !important;
+        color: #000 !important;
+        border: 2px solid #000 !important;
         box-shadow: 4px 4px 0 #000;
     }
 }
 
 .cta-button.secondary {
-    background: #000;
-    color: #fff;
+    background: #000 !important;
+    color: #fff !important;
+    opacity: 1 !important;
 }
 
 /* CTA hover styles moved to @media (hover: hover) block above */

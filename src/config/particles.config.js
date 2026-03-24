@@ -10,31 +10,29 @@ export const particlesConfig = {
     detectRetina: true,
     background: {
         color: { value: "#000000" },
-        opacity: 0 // Transparent background to overlay on existing site
+        opacity: 0 
     },
     interactivity: {
         events: {
             onClick: {
                 enable: !isMobileDevice(),
-                mode: ["attract"]
+                mode: ["push"]
             },
             onHover: {
                 enable: !isMobileDevice(),
-                mode: ["connect", "grab"],
-                parallax: { enable: true, force: 30, smooth: 10 },
+                mode: ["","","grab"],
+                parallax: { enable: false, force: 10, smooth: 100 },
             },
             resize: true
         },
         modes: {
-            push: {
-                quantity: 4
-            },
+            push: {quantity: 2},
             repulse: {
-                distance: 100,
+                distance: 150,
                 duration: 1
             },
             grab: {
-                distance: 150,
+                distance: 180,
                 duration: 1,
                 links: {
                     opacity: 1,
@@ -44,14 +42,14 @@ export const particlesConfig = {
             },
             bubble: {
                 distance: 200,
-                size: 0.1,
+                size: 20,
                 duration: 2,
                 opacity: 0,
                 speed: 3
             },
             connect: {
                 distance: 100,
-                links: { opacity: 0.1 },
+                links: { opacity: .4 },
                 radius: 250
             },
         },
@@ -62,23 +60,23 @@ export const particlesConfig = {
                 enable: false,
                 area: 800
             },
-            value: isMobileDevice() ? 50 : 150 // Reduced count for mobile devices
+            value: isMobileDevice() ? 100 : 250 // Reduced count for mobile devices
         },
         color: { value: '#000' },
         links: {
             color: "#000",
             distance: 60,
             enable: false,
-            opacity: 0.6,
-            width: .4,
+            opacity: .1,
+            width: 1,
             triangles: {
-                enable: false,
+                enable: true,
                 color: "#000",
-                opacity: .5,
+                opacity: .1,
             }
         },
         collisions: {
-            enable: false,
+            enable: true,
             mode: "bounce",
             overlap: {
                 enable: true,
@@ -87,20 +85,20 @@ export const particlesConfig = {
         },
         move: {
             enable: true,
-            direction: "right",
+            direction: "top",
             outModes: "out",
             gravity: {
-                enable: true,
+                enable: false,
                 acceleration: 9.81,
                 maxSpeed: .5
             },
-            speed: 2,
+            speed: 1.2,
             bounce: true,
             attract: {
                 enable: false,
                 easing: "ease",
-                rotateX: -100,
-                rotateY: -100,
+                rotateX: 10000,
+                rotateY: 10000,
             },
             warp: true,
             angle: { offset: false, value: 90, }
@@ -110,8 +108,8 @@ export const particlesConfig = {
             random: true,
             animation: {
                 enable: true,
-                speed: 5,
-                opacity_min: .5,
+                speed: 20,
+                opacity_min: 0,
                 sync: false
             }
         },
@@ -122,7 +120,7 @@ export const particlesConfig = {
             value: { min: 0, max: 360 },
             direction: "random",
             animation: {
-                enable: true,
+                enable: false,
                 speed: 5
             }
         },
@@ -131,7 +129,7 @@ export const particlesConfig = {
             random: true,
             anim: {
                 enable: true,
-                speed: 5,
+                speed: 2,
                 size_min: .1,
                 sync: false
             }

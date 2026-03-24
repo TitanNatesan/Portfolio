@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import './sidecard.css';
-import { FaLinkedinIn, FaInstagram, FaGithub, FaFacebookF, FaWhatsapp, FaDownload } from 'react-icons/fa';
+import { FaLinkedinIn, FaInstagram, FaGithub, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 
 const socialLinks = [
     { icon: FaLinkedinIn, label: 'LinkedIn', href: 'https://linkedin.com/in/titannatesan', color: '#0077b5' },
@@ -55,7 +55,7 @@ export default function SideCard() {
     };
 
     return (
-        <section className="sidecard relative w-auto mx-4 lg:mx-0 lg:w-[35%] lg:fixed lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:h-[94vh] lg:min-w-80 lg:max-w-125 border-2 border-solid border-black rounded-tl-[3rem] rounded-br-[3rem] lg:rounded-tl-[5rem] lg:rounded-br-[5rem] flex flex-col z-40 lg:pt-0 mb-8 lg:mb-0 bg-white">
+        <section className="sidecard relative w-auto mx-4 lg:mx-0 lg:w-[35%] lg:fixed lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:h-[94vh] lg:min-w-80 lg:max-w-125 border-2 border-solid border-black rounded-tl-[3rem] rounded-br-[3rem] lg:rounded-tl-[5rem] lg:rounded-br-[5rem] flex flex-col z-40 lg:pt-0 mb-8 lg:mb-0 hover:backdrop-blur-xs">
             {/* Head Section */}
             <header className="sidecard-head flex justify-between items-center px-8 py-12 border-b border-neutral-200 rounded-tl-[3rem] lg:rounded-tl-[5rem]">
                 <h2 className="hero glitch layers text-4xl font-bold tracking-tight" data-text="TitanDev">

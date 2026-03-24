@@ -25,6 +25,10 @@ export default function useLoadAnime(enabled = true) {
         const trackElements = (selector) => {
             document.querySelectorAll(selector).forEach(el => {
                 window.__loadAnimatedEls.add(el);
+                // Also track all children so child animations don't get reset by useScrollAnime
+                el.querySelectorAll('*').forEach(child => {
+                    window.__loadAnimatedEls.add(child);
+                });
             });
         };
 

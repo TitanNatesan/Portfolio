@@ -17,159 +17,107 @@ export default function Main() {
     // Page load entrance animation
     useLoadAnime(true);
 
-    // Enhanced anime.js scroll animations
+    // GSAP ScrollTrigger scroll animations
     useScrollAnime([
         // ── Section titles: slide-up + fade ──
         {
             selector: '.section-title',
-            animationProps: {
-                translateY: ['35px', '0px'],
-                opacity: [0, 1],
-                duration: 1000,
-                ease: 'outExpo',
-            },
+            from: { y: 35, opacity: 0 },
+            to: { y: 0, opacity: 1 },
         },
         // ── Hero description: parallax slide-up ──
         {
             selector: '.hero-desc',
-            animationProps: {
-                translateY: ['40px', '0px'],
-                opacity: [0, 1],
-                duration: 1100,
-                ease: 'outQuart',
-            },
+            from: { y: 40, opacity: 0 },
+            to: { y: 0, opacity: 1 },
         },
         // ── Section descriptions: staggered blur-in slide-up ──
         {
             selector: '.section-desc',
-            animationProps: {
-                translateY: ['20px', '0px'],
-                opacity: [0, 1],
-                filter: ['blur(6px)', 'blur(0px)'],
-                duration: 900,
-                ease: 'outQuart',
-            },
+            from: { y: 20, opacity: 0, filter: 'blur(6px)' },
+            to: { y: 0, opacity: 1, filter: 'blur(0px)' },
             staggerDelay: 150,
         },
         // ── Skill cards: staggered scale-pop with rotation ──
         {
             selector: '.skill-card',
-            animationProps: {
-                scale: [0.6, 1],
-                rotate: ['-8deg', '0deg'],
-                opacity: [0, 1],
-                duration: 600,
-                ease: 'outBack',
-            },
-            staggerDelay: 50,
+            from: { scale: 0.6, rotation: -8, opacity: 0 },
+            to: { scale: 1, rotation: 0, opacity: 1 },
+            staggerDelay: 40,
+            start: 'top 95%',
+            end: 'top 40%',
         },
         // ── Project cards: staggered slide-up with scale ──
         {
             selector: '.project-card',
-            animationProps: {
-                translateY: ['60px', '0px'],
-                scale: [0.92, 1],
-                opacity: [0, 1],
-                duration: 900,
-                ease: 'outQuart',
-            },
-            staggerDelay: 180,
+            from: { y: 60, scale: 0.92, opacity: 0 },
+            to: { y: 0, scale: 1, opacity: 1 },
+            staggerDelay: 150,
+            start: 'top 95%',
+            end: 'top 30%',
         },
         // ── Timeline items: slide from sides ──
         {
             selector: '.timeline-item.left',
-            animationProps: {
-                translateX: ['-50px', '0px'],
-                opacity: [0, 1],
-                duration: 800,
-                ease: 'outExpo',
-            },
-            staggerDelay: 120,
+            from: { x: -50, opacity: 0 },
+            to: { x: 0, opacity: 1 },
+            staggerDelay: 100,
         },
         {
             selector: '.timeline-item.right',
-            animationProps: {
-                translateX: ['50px', '0px'],
-                opacity: [0, 1],
-                duration: 800,
-                ease: 'outExpo',
-            },
-            staggerDelay: 120,
+            from: { x: 50, opacity: 0 },
+            to: { x: 0, opacity: 1 },
+            staggerDelay: 100,
         },
-        // ── CTA buttons: scale-pop ──
+        // ── CTA buttons: pop-in (no scrub/opacity reveal to ensure 100% visibility) ──
         {
-            selector: '.cta-button',
-            animationProps: {
-                scale: [0.85, 1],
-                opacity: [0, 1],
-                duration: 600,
-                ease: 'outBack',
-            },
+            selector: '.section .cta-button',
+            from: { scale: 0.85 },
+            to: { scale: 1 },
+            scrub: false,
+            start: 'top 95%',
         },
         // ── Contact card: slide-up with perspective feel ──
         {
             selector: '.contact-card',
-            animationProps: {
-                translateY: ['50px', '0px'],
-                scale: [0.93, 1],
-                opacity: [0, 1],
-                duration: 1000,
-                ease: 'outExpo',
-            },
+            from: { y: 50, scale: 0.93, opacity: 0 },
+            to: { y: 0, scale: 1, opacity: 1 },
+            start: 'top 95%',
+            end: 'top 35%',
         },
-        // ── Floating tags: drop-in with bounce ──
+        // ── Floating tags: drop-in ──
         {
             selector: '.floating-tag',
-            animationProps: {
-                translateY: ['-20px', '0px'],
-                opacity: [0, 1],
-                duration: 600,
-                ease: 'outBack',
-            },
+            from: { y: -20, opacity: 0 },
+            to: { y: 0, opacity: 1 },
             staggerDelay: 80,
         },
-        // ── Skills category headings: line-expand + text fade ──
+        // ── Skills category headings: slide from left ──
         {
             selector: '.skills-category',
-            animationProps: {
-                translateX: ['-25px', '0px'],
-                opacity: [0, 1],
-                duration: 700,
-                ease: 'outQuart',
-            },
+            from: { x: -25, opacity: 0 },
+            to: { x: 0, opacity: 1 },
             staggerDelay: 100,
         },
         // ── Skills category wrappers: staggered fade-up ──
         {
             selector: '.skills-category-wrapper',
-            animationProps: {
-                translateY: ['30px', '0px'],
-                opacity: [0, 1],
-                duration: 800,
-                ease: 'outQuart',
-            },
-            staggerDelay: 200,
+            from: { y: 30, opacity: 0 },
+            to: { y: 0, opacity: 1 },
+            staggerDelay: 180,
         },
         // ── Contact form groups: staggered slide-up ──
         {
             selector: '.form-group',
-            animationProps: {
-                translateY: ['25px', '0px'],
-                opacity: [0, 1],
-                duration: 600,
-                ease: 'outQuart',
-            },
-            staggerDelay: 100,
+            from: { y: 25, opacity: 0 },
+            to: { y: 0, opacity: 1 },
+            staggerDelay: 80,
         },
         // ── Contact info: slide from left ──
         {
             selector: '.contact-info',
-            animationProps: {
-                translateX: ['-30px', '0px'],
-                opacity: [0, 1],
-                duration: 800,
-                ease: 'outExpo',
-            },
+            from: { x: -30, opacity: 0 },
+            to: { x: 0, opacity: 1 },
         },
     ]);
 

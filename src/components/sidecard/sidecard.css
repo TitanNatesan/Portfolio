@@ -5,6 +5,19 @@
     backface-visibility: hidden;
 }
 
+.sidecard-foot .cta-button {
+    background: #000 !important;
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+@media (hover: hover) {
+    .sidecard-foot .cta-button:hover {
+        background: transparent !important;
+        color: #000 !important;
+    }
+}
+
 /* Role Badge Styles */
 .role-badge {
     display: flex;
