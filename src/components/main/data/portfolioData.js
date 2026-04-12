@@ -105,23 +105,35 @@ export const timeline = [
         title: 'High School',
         subtitle: 'Universal Matriculation Higher Secondary School',
         side: 'left',
+        badge:"24M"
     },
     {
-        period: "Sep'2022 - Present",
+        period: "Sep'2022 - Mar'2026",
         title: 'BE in Computer Science',
         subtitle: 'Karpagam Academy of Higher Education',
         side: 'right',
+        badge:"42M"
     },
     {
         period: "2024 - Present",
         title: 'Freelance Full Stack Developer',
         subtitle: 'Full-stack & AI/ML Projects, Backend Specialist',
         side: 'left',
+        badge:"ထ"
     },
     {
         period: "Aug'2025 - Oct'2025",
         title: 'AI Researcher Intern',
         subtitle: 'National Chung Cheng University, Taiwan',
         side: 'right',
+        badge:"3M"
     },
+    {
+        period: "Apr'2026 - Present",
+        title: 'Python Developer',
+        subtitle: 'OneData Software Solutions Pvt. Ltd.',
+        side: 'left',
+        badge:"ထ"
+    },
+    
 ];

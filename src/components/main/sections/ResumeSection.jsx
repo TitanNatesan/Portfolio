@@ -20,6 +20,9 @@ export default function ResumeSection() {
                         >
                             <div className="timeline-marker" />
                             <div className="timeline-content">
+                                {item.badge && (
+                                    <div className="timeline-badge">{item.badge}</div>
+                                )}
                                 <span className="timeline-period">{item.period}</span>
                                 <h3 className="timeline-title">{item.title}</h3>
                                 <p className="timeline-subtitle">{item.subtitle}</p>

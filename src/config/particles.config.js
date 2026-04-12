@@ -92,7 +92,7 @@ export const particlesConfig = {
                 acceleration: 9.81,
                 maxSpeed: .5
             },
-            speed: 1.2,
+            speed: 1,
             bounce: true,
             attract: {
                 enable: false,
@@ -100,7 +100,7 @@ export const particlesConfig = {
                 rotateX: 10000,
                 rotateY: 10000,
             },
-            warp: true,
+            warp: false,
             angle: { offset: false, value: 90, }
         },
         opacity: {
