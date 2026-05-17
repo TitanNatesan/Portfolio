@@ -33,6 +33,30 @@ main {
     @apply relative z-10;
 }
 
+/* Accessibility: Skip link for keyboard navigation */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.sr-only:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
 /* Starry button effect - global */
 .starry-btn {
     position: relative !important;

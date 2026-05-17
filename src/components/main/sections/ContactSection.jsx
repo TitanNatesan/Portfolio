@@ -49,7 +49,7 @@ export default function ContactSection() {
         setTouched(prev => ({ ...prev, [name]: true }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const emailError = validateEmail(formData.email);
         const phoneError = validatePhone(formData.phone);
@@ -58,11 +58,37 @@ export default function ContactSection() {
         setTouched({ email: true, phone: true });
 
         if (!emailError && !phoneError && formData.name && formData.message) {
-            // Form is valid - handle submission
-            console.log('Form submitted:', formData);
-            // Reset form
-            setFormData({ name: '', email: '', phone: '', message: '' });
-            setTouched({ email: false, phone: false });
+            try {
+                // Web3Forms API integration - free, no backend needed
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: 'YOUR_WEB3FORMS_ACCESS_KEY_HERE', // Get free key from https://web3forms.com
+                        name: formData.name,
+                        email: formData.email,
+                        phone: formData.phone || 'Not provided',
+                        message: formData.message,
+                        subject: `New Portfolio Contact from ${formData.name}`
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Thank you! Your message has been sent successfully.');
+                    // Reset form
+                    setFormData({ name: '', email: '', phone: '', message: '' });
+                    setTouched({ email: false, phone: false });
+                } else {
+                    alert('Oops! Something went wrong. Please try again or email directly.');
+                }
+            } catch (error) {
+                alert('Network error. Please check your connection and try again.');
+            }
         }
     };
 

@@ -72,22 +72,6 @@ export const projects = [
         live: 'https://herbalplantclassification.streamlit.app/',
         image: '/projects/herbal.png',
     },
-    // {
-    //     name: 'CBCS Enrollment System',
-    //     desc: 'Web app enabling college students to select courses for academics',
-    //     techStack: ['DRF', 'Next.js', 'TypeScript'],
-    //     github: 'https://github.com/TitanNatesan/CBCS',
-    //     live: null,
-    //     image: '/projects/cbcs.png',
-    // },
-    // {
-    //     name: 'LMS Platform',
-    //     desc: 'Platform for teachers to upload course videos for enrolled students',
-    //     techStack: ['Django', 'React.js'],
-    //     github: 'https://github.com/TitanNatesan/EduConnect',
-    //     live: null,
-    //     image: '/projects/lms.png',
-    // },
     {
         name: 'Hand Gesture Detection',
         desc: 'Mobile application for e-commerce with full backend integration',
@@ -105,35 +89,35 @@ export const timeline = [
         title: 'High School',
         subtitle: 'Universal Matriculation Higher Secondary School',
         side: 'left',
-        badge:"24M"
+        badge: '24M',
     },
     {
         period: "Sep'2022 - Mar'2026",
         title: 'BE in Computer Science',
         subtitle: 'Karpagam Academy of Higher Education',
         side: 'right',
-        badge:"42M"
+        badge: '42M',
     },
     {
-        period: "2024 - Present",
+        period: '2024 - Present',
         title: 'Freelance Full Stack Developer',
         subtitle: 'Full-stack & AI/ML Projects, Backend Specialist',
         side: 'left',
-        badge:"ထ"
+        badge: '∞',
     },
     {
         period: "Aug'2025 - Oct'2025",
         title: 'AI Researcher Intern',
         subtitle: 'National Chung Cheng University, Taiwan',
         side: 'right',
-        badge:"3M"
+        badge: '3M',
     },
     {
         period: "Apr'2026 - Present",
         title: 'Python Developer',
         subtitle: 'OneData Software Solutions Pvt. Ltd.',
         side: 'left',
-        badge:"ထ"
+        badge: '∞',
     },
     
 ];

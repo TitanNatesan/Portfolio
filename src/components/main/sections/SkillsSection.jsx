@@ -24,7 +24,14 @@ export default function SkillsSection() {
                         {fullStackSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <Image src={skill.img} alt={skill.name} className="skill-img" width={50} height={50} />
+                                    <Image
+                                        src={skill.img}
+                                        alt={`${skill.name} logo`}
+                                        className="skill-img"
+                                        width={50}
+                                        height={50}
+                                        loading="lazy"
+                                    />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
@@ -42,7 +49,14 @@ export default function SkillsSection() {
                         {devToolsSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <Image src={skill.img} alt={skill.name} className="skill-img" width={50} height={50} />
+                                    <Image
+                                        src={skill.img}
+                                        alt={`${skill.name} logo`}
+                                        className="skill-img"
+                                        width={50}
+                                        height={50}
+                                        loading="lazy"
+                                    />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>
@@ -60,7 +74,14 @@ export default function SkillsSection() {
                         {aiMlSkills.map((skill) => (
                             <div key={skill.name} className="skill-card">
                                 <div className="skill-img-wrapper">
-                                    <Image src={skill.img} alt={skill.name} className="skill-img" width={50} height={50} />
+                                    <Image
+                                        src={skill.img}
+                                        alt={`${skill.name} logo`}
+                                        className="skill-img"
+                                        width={50}
+                                        height={50}
+                                        loading="lazy"
+                                    />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>

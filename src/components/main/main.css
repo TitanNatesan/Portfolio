@@ -893,6 +893,12 @@
         left: -7px !important;
         right: auto !important;
     }
+
+    /* Force badges to always be on the right in tablet view */
+    .timeline-item .timeline-badge {
+        left: auto !important;
+        right: 1rem !important;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1018,6 +1024,15 @@
         background-color: rgba(0, 0, 0, 0.15);
     }
 
+    /* Project section - right align tags and links in mobile */
+    .project-tech {
+        justify-content: flex-end;
+    }
+
+    .project-links {
+        justify-content: flex-end;
+    }
+
     .contact-card {
         flex-direction: column;
         gap: 1.5rem;
@@ -1026,6 +1041,11 @@
 
     .form-row {
         flex-direction: column;
+    }
+
+    /* Contact section - right align send button in mobile */
+    .contact-form .cta-button {
+        align-self: flex-end;
     }
 
     .timeline-item {
@@ -1044,6 +1064,12 @@
     .timeline-item .timeline-marker {
         left: -7px !important;
         right: auto !important;
+    }
+
+    /* Force badges to always be on the right in mobile */
+    .timeline-item .timeline-badge {
+        left: auto !important;
+        right: 0.5rem !important;
     }
 
     .skills-category-wrapper {
