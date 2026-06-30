@@ -20,6 +20,21 @@ body {
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+    transition: filter 0.8s ease;
+}
+
+/* Color Inversion - inverts all colors */
+html.dark body {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Protect images from inversion by counter-inverting them */
+html.dark body img,
+html.dark body picture,
+html.dark body video,
+html.dark body canvas,
+html.dark body svg image {
+    filter: invert(1) hue-rotate(180deg);
 }
 
 img {

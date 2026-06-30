@@ -83,6 +83,7 @@ export const metadata = {
 import ClickSpark from "@/components/ClickSpark";
 import Loader from "@/components/Loader";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import FollowEyes from "@/components/FollowEyes";
 
 // Enhanced JSON-LD Structured Data with multiple schemas
 const jsonLd = {
@@ -195,6 +196,7 @@ export default function RootLayout({ children }) {
             duration={400}
           >
             <ParticlesBackground />
+            <FollowEyes />
             <main id="main-content" className="relative z-10">{children}</main>
             <GlobalSpotlight />
           </ClickSpark>
